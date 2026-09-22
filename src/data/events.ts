@@ -1,4 +1,4 @@
-import aarambhBanner from "../assets/Aarambh clean banner.jpeg";
+import aarambhBanner from "../assets/aarambh banner.jpeg";
 
 export type EventCategory =
   | "Workshops"
