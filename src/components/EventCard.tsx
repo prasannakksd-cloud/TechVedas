@@ -21,11 +21,7 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -12 }}
       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      className={`group flex flex-col overflow-hidden rounded-xl border ${
-        isAarambh
-          ? "border-[#d8b56a]/35 bg-[#100e0b] hover:border-[#f0ce82]/70"
-          : "border-beige/15 bg-espresso/70 hover:border-gold/40"
-      }`}
+      className="group flex flex-col overflow-hidden rounded-xl border border-[#d8b56a]/35 bg-[#100e0b] transition-all duration-300 hover:border-[#f0ce82]/70"
       data-cursor-hover
     >
       <div
@@ -63,7 +59,7 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
             <a
               href={event.registrationUrl}
               className={`flex items-center gap-1 rounded-full px-4 py-2 text-xs font-semibold transition-transform duration-300 group-hover:-translate-y-0.5 ${
-                isAarambh ? "bg-[#d9b467] text-[#171109]" : "bg-terracotta text-cream"
+                "bg-[#d9b467] text-[#171109]"
               }`}
             >
               Register <ArrowUpRight size={13} />
