@@ -9,6 +9,7 @@ interface EventDetailsProps {
 }
 
 export default function EventDetails({ event, onClose }: EventDetailsProps) {
+  const isAarambh = event.id === "datathon-2026";
   const formattedDate = new Date(event.date).toLocaleDateString("en-IN", {
     weekday: "long",
     day: "numeric",
@@ -32,7 +33,7 @@ export default function EventDetails({ event, onClose }: EventDetailsProps) {
         onClick={(e) => e.stopPropagation()}
         className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-cream shadow-2xl"
       >
-        <div className="relative h-52 bg-beige">
+        <div className={`relative overflow-hidden bg-beige ${isAarambh ? "aspect-[1240/634]" : "h-52"}`}>
           <img
             src={event.image}
             alt=""
