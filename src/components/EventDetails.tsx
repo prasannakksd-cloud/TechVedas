@@ -30,7 +30,7 @@ export default function EventDetails({ event, onClose }: EventDetailsProps) {
         exit={{ opacity: 0, y: 20, scale: 0.97 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-cream"
+        className="relative max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-cream shadow-2xl"
       >
         <div className="relative h-52 bg-beige">
           <img
@@ -80,19 +80,18 @@ export default function EventDetails({ event, onClose }: EventDetailsProps) {
             </div>
           )}
 
-          {event.status === "upcoming" && (
-            <div className="mt-6">
-              <Countdown date={event.date} />
+          {(event.status === "upcoming" || event.registrationUrl) && (
+            <div className="mt-7 flex flex-col gap-4 border-t border-brown/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+              {event.status === "upcoming" && <Countdown date={event.date} />}
+              {event.registrationUrl && event.status !== "past" && (
+                <a
+                  href={event.registrationUrl}
+                  className="inline-flex items-center justify-center rounded-full bg-terracotta px-7 py-3 text-sm font-semibold text-cream shadow-sm transition-transform hover:-translate-y-0.5"
+                >
+                  Register now
+                </a>
+              )}
             </div>
-          )}
-
-          {event.registrationUrl && event.status !== "past" && (
-            <a
-              href={event.registrationUrl}
-              className="mt-7 inline-block rounded-full bg-terracotta px-7 py-3 text-sm font-semibold text-cream"
-            >
-              Register now
-            </a>
           )}
         </div>
       </motion.div>
