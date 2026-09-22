@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --espresso: #0B1320;
+  --brown: #233044;
+  --olive: #164E63;
+  --sage: #2DD4BF;
+  --beige: #B9D8E5;
+  --cream: #F5F8FA;
+  --terracotta: #FF6B5F;
+  --gold: #F5C76B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(45, 212, 191, 0.11), transparent 26rem),
+    radial-gradient(circle at 92% 42%, rgba(255, 107, 95, 0.08), transparent 30rem),
+    var(--cream);
+  color: var(--espresso);
+  font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+  margin: 0;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--espresso);
+}
+
+
+
+/* Thin scrollbar in the club palette */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--olive); border-radius: 6px; }
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.container-edit {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
