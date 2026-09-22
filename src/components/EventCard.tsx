@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Calendar, MapPin } from "lucide-react";
 import type { ClubEvent } from "../data/events";
 
 interface EventCardProps {
@@ -9,6 +9,11 @@ interface EventCardProps {
 
 export default function EventCard({ event, onViewDetails }: EventCardProps) {
   const isAarambh = event.id === "datathon-2026";
+  const formattedDate = new Date(event.date).toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
 
   return (
     <motion.article
@@ -36,9 +41,18 @@ export default function EventCard({ event, onViewDetails }: EventCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="font-display text-xl font-semibold leading-snug text-cream">{event.title}</h3>
+        <span className={`text-[10px] font-semibold uppercase tracking-[0.2em] ${isAarambh ? "text-[#e1bb6c]" : "text-gold"}`}>
+          {event.category}
+        </span>
+        <h3 className="mt-2 font-display text-xl font-semibold leading-snug text-cream">{event.title}</h3>
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-beige/70">{event.description}</p>
 
-        <div className="mt-4 flex items-center justify-between border-t border-beige/15 pt-4">
+        <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-beige/60">
+          <span className="flex items-center gap-1.5"><Calendar size={13} className="text-gold" /> {formattedDate}</span>
+          <span className="flex items-center gap-1.5"><MapPin size={13} className="text-gold" /> {event.venue}</span>
+        </div>
+
+        <div className="mt-5 flex items-center justify-between border-t border-beige/15 pt-4">
           <button
             onClick={() => onViewDetails(event)}
             className="text-sm font-semibold text-gold underline decoration-transparent underline-offset-4 transition-all duration-300 hover:decoration-gold"
