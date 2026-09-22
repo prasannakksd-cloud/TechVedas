@@ -1,3 +1,5 @@
+import aarambhBanner from "../assets/Aarambh banner.jpeg";
+
 export type EventCategory =
   | "Workshops"
   | "Hackathons"
@@ -17,6 +19,8 @@ export interface ClubEvent {
   venue: string;
   description: string;
   image: string;
+  imageDateLabel?: string;
+  details?: string[];
   registrationUrl?: string;
   status: EventStatus;
 }
@@ -37,14 +41,26 @@ export const events: ClubEvent[] = [
   },
   {
     id: "datathon-2026",
-    title: "Datathon 2026",
+    title: "Aarambh 2026",
     category: "Hackathons",
-    date: "2026-11-08",
-    time: "9:00 AM",
-    venue: "DSU Innovation Lab",
+    date: "2026-10-05",
+    time: "8:30 AM onwards",
+    venue: "Lecture Hall 1, Block A, SOE, DSU",
     description:
-      "A 24-hour data science hackathon where teams turn messy real-world datasets into working products.",
-    image: "/assets/events/datathon.jpg",
+      "A 36-hour hackathon themed AI for the Next Billion.",
+    image: aarambhBanner,
+    imageDateLabel: "5th & 6th October 2026",
+    details: [
+      "36-hour hackathon",
+      "Theme: AI for the Next Billion",
+      "Prize pool: Rs 55,000 including goodies",
+      "Team size: 3",
+      "Round 1: Idea submission, fee Rs 100",
+      "Round 2: Hackathon, fee Rs 500 per team",
+      "Convener: Dr. Poonmogi, Professor & Chairperson, CSE (AI & DS)",
+      "Faculty coordinators: Dr. Aditya Pai and Mr. Rishav Barnwal",
+      "Student coordinators: Shivam Kumar Mehta and Mohit Deodhar",
+    ],
     registrationUrl: "#",
     status: "upcoming",
   },

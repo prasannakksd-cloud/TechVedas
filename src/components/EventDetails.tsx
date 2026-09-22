@@ -57,7 +57,7 @@ export default function EventDetails({ event, onClose }: EventDetailsProps) {
 
           <div className="mt-6 space-y-2 text-sm text-brown/70">
             <div className="flex items-center gap-2">
-              <Calendar size={15} /> {formattedDate}
+              <Calendar size={15} /> {event.imageDateLabel ?? formattedDate}
             </div>
             <div className="flex items-center gap-2">
               <Clock size={15} /> {event.time}
@@ -66,6 +66,19 @@ export default function EventDetails({ event, onClose }: EventDetailsProps) {
               <MapPin size={15} /> {event.venue}
             </div>
           </div>
+
+          {event.details && (
+            <div className="mt-6 grid gap-2 sm:grid-cols-2">
+              {event.details.map((detail) => (
+                <div
+                  key={detail}
+                  className="border border-terracotta/15 bg-beige/25 px-3 py-2 text-xs leading-relaxed text-brown/80"
+                >
+                  {detail}
+                </div>
+              ))}
+            </div>
+          )}
 
           {event.status === "upcoming" && (
             <div className="mt-6">
