@@ -61,7 +61,7 @@ export const events: ClubEvent[] = [
       "Faculty coordinators: Dr. Aditya Pai and Mr. Rishav Barnwal",
       "Student coordinators: Shivam Kumar Mehta and Mohit Deodhar",
     ],
-    registrationUrl: "#",
+    registrationUrl: "https://mastryhub.com/event/aarambh-the-beginning",
     status: "upcoming",
   },
   {
