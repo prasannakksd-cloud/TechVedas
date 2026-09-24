@@ -65,19 +65,6 @@ export const events: ClubEvent[] = [
     status: "upcoming",
   },
   {
-    id: "git-and-ship",
-    title: "Git & Ship: Version Control Workshop",
-    category: "Workshops",
-    date: "2026-09-27",
-    time: "4:00 PM",
-    venue: "Room 204, CSE Block",
-    description:
-      "From your first commit to a clean pull request — a practical walkthrough of Git for team projects.",
-    image: "/assets/events/git-workshop.jpg",
-    registrationUrl: "#",
-    status: "upcoming",
-  },
-  {
     id: "founders-talk",
     title: "Tech Talk: Building AI Products at Scale",
     category: "Tech Talks",
@@ -99,18 +86,6 @@ export const events: ClubEvent[] = [
     description:
       "A timed competitive programming sprint across three difficulty tiers, capped with a live leaderboard.",
     image: "/assets/events/codesprint.jpg",
-    status: "past",
-  },
-  {
-    id: "vision-hack",
-    title: "VisionHack: Computer Vision Hackathon",
-    category: "Hackathons",
-    date: "2025-01-22",
-    time: "9:00 AM",
-    venue: "DSU Innovation Lab",
-    description:
-      "Teams prototyped computer-vision applications, from gesture control to campus safety tools.",
-    image: "/assets/events/visionhack.jpg",
     status: "past",
   },
   {

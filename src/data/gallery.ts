@@ -1,4 +1,4 @@
-import aarambhPoster from "../assets/aarambh poster.jpeg";
+import aarambhBanner from "../assets/aarambh banner.jpeg";
 
 export type GalleryCategory =
   | "Workshops"
@@ -17,7 +17,7 @@ export interface GalleryImage {
 }
 
 export const gallery: GalleryImage[] = [
-  { id: "aarambh-2026", image: aarambhPoster, category: "Hackathons", title: "Aarambh 36-hour hackathon", date: "2026-10-05", span: "tall" },
+  { id: "aarambh-2026", image: aarambhBanner, category: "Hackathons", title: "Aarambh 36-hour hackathon", date: "2026-10-05", span: "tall" },
   { id: "g1", image: "/assets/gallery/g1.jpg", category: "Hackathons", title: "Datathon overnight build", date: "2025-11-08", span: "tall" },
   { id: "g2", image: "/assets/gallery/g2.jpg", category: "Workshops", title: "Git workshop, hands-on session", date: "2025-09-27" },
   { id: "g3", image: "/assets/gallery/g3.jpg", category: "Tech Talks", title: "AI products at scale, Q&A", date: "2025-09-20" },
