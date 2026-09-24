@@ -54,7 +54,7 @@ export const events: ClubEvent[] = [
       "36-hour hackathon",
       "Theme: AI for the Next Billion",
       "Prize pool: Rs 55,000 including goodies",
-      "Team size: 3",
+      "Team size: 3-4",
       "Round 1: Idea submission, fee Rs 100",
       "Round 2: Hackathon, fee Rs 500 per team",
       "Convener: Dr. Poonmogi, Professor & Chairperson, CSE (AI & DS)",
