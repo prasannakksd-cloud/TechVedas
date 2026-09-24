@@ -46,7 +46,13 @@ export default function Footer() {
           <a href="#" aria-label="GitHub" className="text-beige/70 hover:text-gold">
             <GithubIcon size={18} />
           </a>
-          <a href="mailto:techvedas@dsu.edu.in" aria-label="Email" className="text-beige/70 hover:text-gold">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=techvedas.dsu@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Email"
+            className="text-beige/70 hover:text-gold"
+          >
             <Mail size={18} />
           </a>
         </div>

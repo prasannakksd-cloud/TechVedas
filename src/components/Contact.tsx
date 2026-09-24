@@ -5,6 +5,9 @@ import { InstagramIcon } from "./BrandIcons";
 
 type Status = "idle" | "loading" | "success" | "error";
 
+const CONTACT_FORM_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxQAXAemEX7-3DD6qWEvVLA-qxCAJ7yHcbbLoU_MxDIZfXU0QhTP3xRnlssSFXEhPxt/exec";
+
 interface Errors {
   name?: string;
   email?: string;
@@ -31,7 +34,7 @@ export default function Contact() {
     return next;
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const validation = validate(form);
@@ -39,14 +42,9 @@ export default function Contact() {
     if (Object.keys(validation).length > 0) return;
 
     setStatus("loading");
-    try {
-      // Placeholder submission — wire this to a real endpoint later.
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      setStatus("success");
-      form.reset();
-    } catch {
-      setStatus("error");
-    }
+    HTMLFormElement.prototype.submit.call(form);
+    setStatus("success");
+    form.reset();
   };
 
   return (
@@ -62,8 +60,13 @@ export default function Contact() {
           </p>
           <div className="mt-10 space-y-7">
             <ContactDetail icon={<Mail size={22} />} label="Email">
-              <a href="mailto:techvedas@dsu.edu.in" className="text-lg text-beige/90 transition-colors hover:text-gold">
-                techvedas@dsu.edu.in
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=techvedas.dsu@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                className="text-lg text-beige/90 transition-colors hover:text-gold"
+              >
+                techvedas.dsu@gmail.com
               </a>
             </ContactDetail>
 
@@ -91,7 +94,14 @@ export default function Contact() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
+        <form
+          onSubmit={handleSubmit}
+          action={CONTACT_FORM_ENDPOINT}
+          method="post"
+          target="contact-form-submission"
+          noValidate
+          className="space-y-5"
+        >
           <Field label="Name" name="name" error={errors.name} />
           <Field label="Email" name="email" type="email" error={errors.email} />
           <Field label="Subject" name="subject" error={errors.subject} />
@@ -133,6 +143,12 @@ export default function Contact() {
             </motion.p>
           )}
         </form>
+        <iframe
+          name="contact-form-submission"
+          title="Contact form submission"
+          className="hidden"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );
